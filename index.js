@@ -1,25 +1,18 @@
-//////
-
 const result = document.getElementById("result");
 const form = document.querySelector("form");
 const input = document.querySelector("input");
-
 let meals = [];
 
 async function fetchMeals(search) {
   await fetch("https://www.themealdb.com/api/json/v1/1/search.php?s=" + search)
     .then((res) => res.json())
     .then((data) => (meals = data.meals));
-
-  console.log(meals);
 }
 
 function mealsDisplay() {
   if (meals === null) {
     result.innerHTML = "<h2>Aucun résultat</h2>";
   } else {
-    // meals.length = 24; /// limite de 24 plats
-
     result.innerHTML = meals
       .map((meal) => {
         let ingredients = [];
@@ -46,8 +39,6 @@ function mealsDisplay() {
 
 input.addEventListener("input", (e) => {
   fetchMeals(e.target.value).then(() => mealsDisplay());
-
-  //   input = "";
 });
 
 form.addEventListener("submit", (e) => {
