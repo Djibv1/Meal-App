@@ -65,5 +65,5 @@ img {
   box-shadow: 0 1px 10px rgba(0, 0, 0, 0.304);
 }
 li > ul > li {
-  text-align: left;
+  text-align: center;
 }
